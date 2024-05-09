@@ -16,8 +16,9 @@ class NumberController extends GetxController {
       number.value += val;
     }
   }
+
   // 번호 삭제
-  onBackspacePress(val) {
+  void onBackspacePress(val) {
     if (number.value.length > 3) {        // 010은 남겨두고 뒤에서부터 하나씩 삭제
       number.value = number.value.substring(0, number.value.length - 1);
     }
