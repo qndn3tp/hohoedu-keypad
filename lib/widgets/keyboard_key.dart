@@ -23,16 +23,20 @@ class _KeyboardKeyState extends State<KeyboardKey> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      // 키패드의 키를 눌렀을 때
       onTap: (){
         widget.onTap(widget.value);
       },
       child: AspectRatio(
-        aspectRatio: 2,
+        aspectRatio: 2,         // 키패드의 가로세로 비율
           child: Center(
             child: widget.label is String
               ? Text(
                 widget.label,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: style.TEXT_GREY),
+                style: const TextStyle(
+                  fontSize: 20, 
+                  fontWeight: FontWeight.bold, 
+                  color: style.TEXT_GREY),
               )
               : Icon(widget.label, color: style.TEXT_GREY),
           ),

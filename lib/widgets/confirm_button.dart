@@ -12,20 +12,29 @@ confirmButton(context) {
   final numberController = Get.put(NumberController());
 
   return InkWell(
+    // 버튼을 눌렀을 때
     onTap: (){
+      // 전화번호가 모두 입력되면 실행할 로직
       if (numberController.numberLen == 11){
-        print("확인");
-        customDialog(
-          context, "출석완료", 
-          icon: Icon(
-            EvaIcons.checkmarkCircle2, 
-            color: Colors.green[400])
+        // sendAttendanceNoti();                            // 해당 번호로 알림을 보내는 비즈니스 로직
+        customDialog(                                       // 알림창
+          context, 
+          "출석 완료", 
+          icon: Icon(EvaIcons.checkmarkCircle2, color: Colors.green[400])
         );
-        numberController.number.value = '010';
-      } else {
-        null;
+        numberController.number.value = '010';             // 번호 초기화
+      } 
+      // 전화번호가 잘못 입력되었을 때 실행할 로직
+      else {
+        customDialog(                                      // 알림창
+          context, 
+          "번호를 다시 입력해주세요", 
+          icon: Icon(EvaIcons.closeCircle, color: Colors.red[400])
+        );
+        numberController.number.value = '010';             // 번호 초기화
       }
     },
+    // 하단 확인 버튼
     child: const BottomAppBar(
       elevation: 0,
       color: Colors.white,
@@ -35,6 +44,7 @@ confirmButton(context) {
 }
 
 
+// 하단 확인 버튼
 class ConfirmButton extends StatefulWidget {
   const ConfirmButton({super.key});
 
@@ -97,7 +107,11 @@ class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProvider
           child: const Center(
             child: Text(
               "확인", 
-              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20, 
+                fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),

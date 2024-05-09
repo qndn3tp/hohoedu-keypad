@@ -4,7 +4,7 @@ import 'package:hoho_keypad/screens/home/home.dart';
 
 void main() async{
   // 앱의 바인딩 초기화(flutter engine과의 상호작용을 위한 준비)
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized(); 
   // 화면 세로방향 고정                                        
   await SystemChrome.setPreferredOrientations([                               
     DeviceOrientation.portraitUp,
