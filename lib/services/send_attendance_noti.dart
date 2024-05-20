@@ -1,10 +1,16 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get.dart';
+import 'package:hoho_keypad/screens/home1/attendance_button_controller.dart';
 import 'package:http/http.dart' as http;
 
 void sendAttendanceNoti() async {
-  var url = Uri.parse('http://hohoedufcm.gabia.io/');
+  final attendanceButtonController = Get.put(AttendanceButtonController());
+  final attendanceStatus = attendanceButtonController.getAttendanceStatus();
+
+  var url = Uri.parse(dotenv.get("TOKEN_SEND_SERVER_URL"));
 
   const token = "c7KQVugNTTy4tIGW0y03_W:APA91bEwuO4-gXrmdoz6bMCvpswEeVo6fnsl-3zGSjRaGD9lPK6KQwShrB4OSWznDQ_i4Fm3XFbCDT0ihRp3XLVPgzGMT4rszL16vvtdXvOS-LKVQCjFOk39N4UpuneoGyttve40epyx";
-  const body = "김호호 학생이 출석했습니다";
+  final body = "김호호 학생이 $attendanceStatus했습니다";
 
   // 보낼 데이터
   var data = {

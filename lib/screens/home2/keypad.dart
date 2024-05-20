@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hoho_keypad/widgets/keyboard_key.dart';
-import 'package:hoho_keypad/screens/home/number_controller.dart';  
+import 'package:hoho_keypad/screens/home2/number_controller.dart';  
 
 ///////////////
 //  키패드  //

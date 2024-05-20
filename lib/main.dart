@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hoho_keypad/screens/home/home.dart';
+import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hoho_keypad/screens/home1/home1.dart';
 
 void main() async{
   // 앱의 바인딩 초기화(flutter engine과의 상호작용을 위한 준비)
   WidgetsFlutterBinding.ensureInitialized(); 
+  // 환경변수 파일 로드
+  await dotenv.load(fileName: ".env");
   // 화면 세로방향 고정                                        
   await SystemChrome.setPreferredOrientations([                               
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const MaterialApp(home: MyApp()));
+  runApp(const GetMaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,6 +23,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return const Home1();
   }
 }
