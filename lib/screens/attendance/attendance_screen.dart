@@ -40,7 +40,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         ),
       ),
       // 확인버튼
-      bottomNavigationBar: confirmButton(context),
+      bottomNavigationBar: confirmButton(),
     );
   }
 }

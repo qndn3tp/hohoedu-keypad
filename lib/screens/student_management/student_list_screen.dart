@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hoho_keypad/style.dart';
 import 'package:hoho_keypad/widgets/custom_appbar.dart';
 
@@ -29,13 +30,13 @@ class StudentListScreen extends StatelessWidget {
             child: const Center(child: Text("5월 20일", style: TextStyle(color: PrimaryColors.textGrey, fontWeight: FontWeight.bold, fontSize: 18),)),
           ),
           // 상단 학생/출결
-          tableTitle(context),
+          tableTitle(),
           // 테이블 내용
           Expanded(
             child: ListView.builder(
               itemCount: 3,
               itemBuilder: (context, index) {
-              return tableContent(context);
+              return tableContent();
               }
             )
           )
@@ -46,9 +47,9 @@ class StudentListScreen extends StatelessWidget {
 }
 
 // 상단 학생/출결
-Widget tableTitle(context) {
+Widget tableTitle() {
   const TextStyle textStyle = TextStyle(fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold);
-  final Size screenSize = MediaQuery.of(context).size;
+  final Size screenSize = MediaQuery.of(Get.context!).size;
   const int columnFlex = 3; 
 
   return Container(
@@ -85,8 +86,8 @@ Widget tableTitle(context) {
 }
 
 // 테이블 내용
-Widget tableContent(context) {
-  final Size screenSize = MediaQuery.of(context).size;
+Widget tableContent() {
+  final Size screenSize = MediaQuery.of(Get.context!).size;
   const int columnFlex = 3; 
 
   return Container(

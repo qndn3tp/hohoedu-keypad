@@ -9,7 +9,7 @@ import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 ////////////////
 //  확인 버튼  //
 ////////////////
-confirmButton(context) {
+confirmButton() {
   final numberController = Get.put(NumberController());
 
   return InkWell(
