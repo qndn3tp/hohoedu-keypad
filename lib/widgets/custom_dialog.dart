@@ -1,11 +1,13 @@
 import 'dart:ui';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hoho_keypad/style.dart';
 
 /////////////////////
 // 출석 완료 알림창 //
 /////////////////////
-void customDialog(BuildContext context, text, {icon}) {
+void customDialog(text, {icon}) {
   showGeneralDialog(
     barrierDismissible: true,
     barrierLabel: '',
@@ -29,11 +31,25 @@ void customDialog(BuildContext context, text, {icon}) {
         child: child,
       ),
     ),
-    context: context,
+    context: Get.context!,
   );
 
   // 1초 후에 알림창 닫기
   Future.delayed(const Duration(milliseconds: 1500), () {
-    Navigator.of(context).pop();
+    Navigator.of(Get.context!).pop();
   });
+}
+
+successDiaog(text) {
+  return customDialog(                        
+    text, 
+    icon: Icon(EvaIcons.checkmarkCircle2, color: Colors.green[400])
+  );
+}
+
+failDialog(text) {
+  return customDialog(                        
+    text, 
+    icon: Icon(EvaIcons.closeCircle, color: Colors.red[400])
+  );
 }
