@@ -7,7 +7,7 @@ import 'package:hoho_keypad/style.dart';
 /////////////////
 // 번호 텍스트 //
 ////////////////
-numberText(screenSize) {
+numberText(screenSize) { 
   // 전화번호 컨트롤러
   final numberController = Get.put(NumberController());
   // 숫자 텍스트 스타일
