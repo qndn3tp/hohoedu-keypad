@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home1/attendance_button_controller.dart';
-import 'package:hoho_keypad/screens/home2/home2.dart';
+import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
+import 'package:hoho_keypad/screens/attendance/attendance_screen.dart';
 
 /////////////////
 // 등/하원 버튼 //
@@ -11,7 +11,11 @@ Widget attendanceButton(title, screenSize) {
 
   return GestureDetector(
     onTap: () {
-      Get.to(const Home2());
+      Get.to(
+        const AttendanceScreen(),
+        transition: Transition.cupertino,
+        duration: const Duration(milliseconds: 500),
+      );
       if (title == "등원") {
         attendanceButtonController.setAttendanceButton(1);
       } else {

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home1/attendance_button_controller.dart';
+import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
 import 'package:hoho_keypad/widgets/confirm_button.dart';
-import 'package:hoho_keypad/screens/home2/explain_text.dart';
-import 'package:hoho_keypad/screens/home2/keypad.dart';
-import 'package:hoho_keypad/screens/home2/number_text.dart';
+import 'package:hoho_keypad/screens/attendance/explain_text.dart';
+import 'package:hoho_keypad/screens/attendance/keypad.dart';
+import 'package:hoho_keypad/screens/attendance/number_text.dart';
+import 'package:hoho_keypad/widgets/custom_appbar.dart';
 
 ///////////////////////
 // 홈 화면(번호 입력) //
 ///////////////////////
-class Home2 extends StatefulWidget {
-  const Home2({super.key});
+class AttendanceScreen extends StatefulWidget {
+  const AttendanceScreen({super.key});
 
   @override
-  State<Home2> createState() => _Home2State();
+  State<AttendanceScreen> createState() => _AttendanceScreenState();
 }
 
-class _Home2State extends State<Home2> {
+class _AttendanceScreenState extends State<AttendanceScreen> {
   final attendanceButtonController = Get.put(AttendanceButtonController());
 
   @override
@@ -25,18 +26,7 @@ class _Home2State extends State<Home2> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, 
-        title: Text(attendanceButtonController.getAttendanceStatus(), style: const TextStyle(fontWeight: FontWeight.bold),),
-        centerTitle: true,
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(1.0),
-          child: Divider(
-            height: 1.0,
-            color: Color(0xffe4e1e1),
-          ),
-        ),
-      ),
+      appBar: customAppbar(attendanceButtonController.getAttendanceStatus()),
       body: Center(
         child: Column(
           children: [

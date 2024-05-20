@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home2/number_controller.dart';
+import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 import 'package:hoho_keypad/style.dart';
 
 /////////////////

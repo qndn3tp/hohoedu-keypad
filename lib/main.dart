@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hoho_keypad/screens/home1/home1.dart';
+import 'package:hoho_keypad/screens/home/home.dart';
+import 'package:hoho_keypad/style.dart';
 
 void main() async{
   // 앱의 바인딩 초기화(flutter engine과의 상호작용을 위한 준비)
@@ -15,7 +16,12 @@ void main() async{
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const GetMaterialApp(home: MyApp()));
+  runApp(
+    GetMaterialApp(
+      theme: theme,
+      home: const MyApp()
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,6 +29,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Home1();
+    return const Home();
   }
 }
