@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import '../style.dart' as style;
+import 'package:hoho_keypad/style.dart';
 
 /////////////////////
 // 출석 완료 알림창 //
@@ -18,7 +18,7 @@ void customDialog(BuildContext context, text, {icon}) {
           style: const TextStyle(
             fontSize: 18, 
             fontWeight: FontWeight.bold, 
-            color: style.TEXT_GREY),)
+            color: PrimaryColors.textGrey),)
       ),
       content: icon,
     ),

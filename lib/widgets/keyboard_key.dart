@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../style.dart' as style;
+import 'package:hoho_keypad/style.dart';
 
 ////////////////
 //  키패드 키  //
@@ -36,9 +36,9 @@ class _KeyboardKeyState extends State<KeyboardKey> {
                 style: const TextStyle(
                   fontSize: 20, 
                   fontWeight: FontWeight.bold, 
-                  color: style.TEXT_GREY),
+                  color: PrimaryColors.textGrey),
               )
-              : Icon(widget.label, color: style.TEXT_GREY),
+              : Icon(widget.label, color: PrimaryColors.textGrey),
           ),
       ),
     );

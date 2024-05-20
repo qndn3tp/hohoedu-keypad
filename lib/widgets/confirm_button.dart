@@ -1,10 +1,10 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/services/sendAttendanceNoti.dart';
+import 'package:hoho_keypad/services/send_attendance_noti.dart';
+import 'package:hoho_keypad/style.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
-import 'package:hoho_keypad/screens/home/number_controller.dart';
-import '../style.dart' as style;
+import 'package:hoho_keypad/screens/home2/number_controller.dart';
 
 ////////////////
 //  확인 버튼  //
@@ -24,7 +24,7 @@ confirmButton(context) {
 
         customDialog(                            // 알림창
           context, 
-          "출석 완료", 
+          "전송 완료", 
           icon: Icon(EvaIcons.checkmarkCircle2, color: Colors.green[400])
         );
         numberController.number.value = '010';             // 번호 초기화
@@ -98,7 +98,7 @@ class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProvider
         scale: scale,
         child: Container(
           decoration: BoxDecoration(
-            color: style.PRIMARY_BLUE,
+            color: PrimaryColors.indigo,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: const [
               BoxShadow(
