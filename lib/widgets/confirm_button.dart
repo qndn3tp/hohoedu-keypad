@@ -1,10 +1,10 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hoho_keypad/services/send_attendance_noti.dart';
 import 'package:hoho_keypad/style.dart';
+import 'package:hoho_keypad/utils/network_check.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
-import 'package:hoho_keypad/screens/home2/number_controller.dart';
+import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 
 ////////////////
 //  확인 버튼  //
@@ -14,28 +14,25 @@ confirmButton(context) {
 
   return InkWell(
     // 버튼을 눌렀을 때
-    onTap: (){
+    onTap: () async{
       // 전화번호가 모두 입력되면 실행할 로직
       if (numberController.numberLen == 11){
-        // getNumberToken();                     // 해당 번호에 해당하는 토큰을 찾는 로직
-        // getNumberName();                      //           ..        학생 이름을 찾는 로직
-        sendAttendanceNoti();                    // 해당 토큰으로 알림을 보내는 로직
-        // setAttendanceData();                  // db에 출석했음을 저장하는 로직(출석체크 페이지를 위함)
 
-        customDialog(                            // 알림창
-          context, 
-          "전송 완료", 
-          icon: Icon(EvaIcons.checkmarkCircle2, color: Colors.green[400])
-        );
+        // 네트워크가 연결 확인
+        var connectivityResult = await connectivityCheck();
+        if (connectivityResult) {
+          // getNumberToken();                     // 해당 번호에 해당하는 토큰을 찾는 로직
+          // getNumberName();                      //           ..        학생 이름을 찾는 로직
+          sendAttendanceNoti();                    // 해당 토큰으로 알림을 보내는 로직
+          // setAttendanceData();                  // db에 출석했음을 저장하는 로직(출석체크 페이지를 위함)
+        } else {
+          failDialog("네트워크 연결을 확인해주세요");
+        }
         numberController.number.value = '010';             // 번호 초기화
       } 
-      // 전화번호가 잘못 입력되었을 때 실행할 로직
+      // 전화번호가 잘못 입력된 경우
       else {
-        customDialog(                                      
-          context, 
-          "번호를 다시 입력해주세요", 
-          icon: Icon(EvaIcons.closeCircle, color: Colors.red[400])
-        );
+        failDialog("번호를 다시 입력해주세요");
         numberController.number.value = '010';             // 번호 초기화
       }
     },
