@@ -7,9 +7,10 @@ import 'package:hoho_keypad/style.dart';
 ///////////////////
 //  설명 텍스트  //
 //////////////////
-explainText(screenSize) {
+explainText() {
   // 전화번호 컨트롤러
   final numberController = Get.put(NumberController());
+  final screenSize = MediaQuery.of(Get.context!).size; 
 
   return Container(
     margin: const EdgeInsets.only(top: 20),

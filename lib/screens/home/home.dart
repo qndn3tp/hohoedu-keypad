@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hoho_keypad/screens/home/attendance_button.dart';
-import 'package:hoho_keypad/screens/student_management/login.dart';
+import 'package:hoho_keypad/screens/management/login.dart';
 import 'package:hoho_keypad/style.dart';
 import 'package:hoho_keypad/widgets/logo.dart';
 
@@ -13,8 +13,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;   
-       
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -32,11 +30,9 @@ class Home extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            logoImage(screenSize),
-            SizedBox(height: screenSize.height  * 0.1),
-            attendanceButton("등원", screenSize),
-            SizedBox(height: screenSize.height  * 0.1),
-            attendanceButton("하원", screenSize)
+            logoImage(),
+            attendanceButton("등원"),
+            attendanceButton("하원")
           ],
         ),
       ),

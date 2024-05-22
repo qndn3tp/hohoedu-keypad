@@ -22,8 +22,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;       // 현재 기기의 화면 크기
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: customAppbar(attendanceButtonController.getAttendanceStatus()),
@@ -31,9 +29,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         child: Column(
           children: [
             // 텍스트
-            explainText(screenSize),
+            explainText(),
             // 번호
-            numberText(screenSize),
+            numberText(),
             // 키보드 입력
             keyboard(),
           ],
