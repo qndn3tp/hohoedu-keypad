@@ -1,41 +1,55 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:hoho_keypad/models/token_data.dart';
 import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
+import 'package:hoho_keypad/services/store_attendance_data.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
-void sendAttendanceNoti() async {
+////////////////////
+/// 출결알림 전송 //
+/// ///////////////
+Future<void> sendAttendanceNoti() async {
   final attendanceButtonController = Get.put(AttendanceButtonController());
   final attendanceStatus = attendanceButtonController.getAttendanceStatus();
+  final tokenDataController = Get.put(TokenDataController());
 
   var url = Uri.parse(dotenv.get("TOKEN_SEND_SERVER_URL"));
 
-  const token = "c7KQVugNTTy4tIGW0y03_W:APA91bEwuO4-gXrmdoz6bMCvpswEeVo6fnsl-3zGSjRaGD9lPK6KQwShrB4OSWznDQ_i4Fm3XFbCDT0ihRp3XLVPgzGMT4rszL16vvtdXvOS-LKVQCjFOk39N4UpuneoGyttve40epyx";
-  final body = "김호호 학생이 $attendanceStatus했습니다";
+  // 토큰데이터 정보
+  final token = tokenDataController.token;
+  final name = tokenDataController.name;
+  final body = "$name학생이 $attendanceStatus했습니다.";
 
-  // 보낼 데이터
-  var data = {
-    'token': token,
-    'title': "출석 알림",
-    'body': body,
-    'noticeNum': "2"
-  };
-
-  // HTTP POST 요청 보내기
-  var response = await http.post(url, body: data);
+  // HTTP POST 요청
+  var response = await http.post(
+    url, 
+    body: {
+      'token': token,
+      'title': "출석 알림",
+      'body': body,
+      'noticeNum': "2"
+    }
+  );
 
   // 응답 확인
   if (response.statusCode == 200) {
-    print('요청 성공: ${response.body}');
-    final resultStatus = json.decode(response.body)['status'];
-    if (resultStatus == "success") {
-      successDiaog("전송 완료");
+    final result = json.decode(response.body);
+    // fcm 서버와 통신
+    if (result["status"] == "success") {
+      // 토큰 유효성
+      if (result["invalid_tokens"] == "") {
+        // 최종적으로 알림이 전송되면 출결 정보 업데이트
+        successDiaog("전송 완료");
+        await storeAttendanceData();
+      } else {
+        failDialog("유효하지 않은 토큰");
+      }
     } else {
-      failDialog("전송 실패");
+      failDialog("fcm 통신 실패");
     }
   } else {
-    print('요청 실패: ${response.statusCode}');
     failDialog("전송 실패");
   }
 }
