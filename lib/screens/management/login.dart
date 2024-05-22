@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/student_management/student_list_screen.dart';
+import 'package:hoho_keypad/screens/management/student_list_screen.dart';
 import 'package:hoho_keypad/widgets/custom_appbar.dart';
 import '../../style.dart';
 
@@ -93,7 +93,6 @@ Widget loginButton() {
               color: PrimaryColors.grey2,
               width: 2
             )
-
         ),
         child: const Center(
            child: Text(
