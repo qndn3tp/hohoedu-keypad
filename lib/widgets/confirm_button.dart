@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/services/send_attendance_noti.dart';
+import 'package:hoho_keypad/services/get_token_data.dart';
 import 'package:hoho_keypad/style.dart';
 import 'package:hoho_keypad/utils/network_check.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
@@ -14,25 +14,23 @@ confirmButton() {
   final connectivityController = Get.put(ConnectivityController());
 
   return InkWell(
-    // 버튼을 눌렀을 때
     onTap: () async{
-      // 전화번호가 모두 입력되면 실행할 로직
-      if (numberController.numberLen == 11){
-        // 네트워크 연결 확인
+      // 번호가 모두 입력되면 실행할 로직
+      if (numberController.numberLen == 9){
         if (connectivityController.isConnected.value) {
-          // getNumberToken();                     // 해당 번호에 해당하는 토큰을 찾는 로직
-          // getNumberName();                      //           ..        학생 이름을 찾는 로직
-          sendAttendanceNoti();                    // 해당 토큰으로 알림을 보내는 로직
-          // setAttendanceData();                  // db에 출석했음을 저장하는 로직(출석체크 페이지를 위함)
+          // 번호에 해당하는 토큰 데이터 검색
+          // 해당 토큰으로 알림 전송(서버)
+          // db에 출석했음을 저장하는 로직
+          await getTokenData();                    
         } else {
           failDialog("네트워크 연결을 확인해주세요");
         }
-        numberController.number.value = '010';             // 번호 초기화
+        numberController.number.value = '';             // 번호 초기화
       } 
-      // 전화번호가 잘못 입력된 경우
+      // 번호를 덜 누른 경우
       else {
-        failDialog("번호를 다시 입력해주세요");
-        numberController.number.value = '010';             // 번호 초기화
+        failDialog("9자리 모두 입력해주세요");
+        numberController.number.value = '';             // 번호 초기화
       }
     },
     // 하단 확인 버튼
