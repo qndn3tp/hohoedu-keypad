@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:hoho_keypad/models/token_data.dart';
 import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
-import 'package:hoho_keypad/services/store_attendance_data.dart';
+import 'package:hoho_keypad/services/update_attendance_data.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
@@ -42,7 +42,7 @@ Future<void> sendAttendanceNoti() async {
       if (result["invalid_tokens"] == "") {
         // 최종적으로 알림이 전송되면 출결 정보 업데이트
         successDiaog("전송 완료");
-        await storeAttendanceData();
+        await updateAttendanceData();
       } else {
         failDialog("유효하지 않은 토큰");
       }

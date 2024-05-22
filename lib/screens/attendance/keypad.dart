@@ -7,7 +7,7 @@ import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 //  키패드  //
 ///////////////
 keyboard() {
-  // 전화번호 컨트롤러
+  // 번호 컨트롤러
   final numberController = Get.put(NumberController());
   
   // 키패드 배열
