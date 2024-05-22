@@ -11,16 +11,15 @@ import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 ////////////////
 confirmButton() {
   final numberController = Get.put(NumberController());
+  final connectivityController = Get.put(ConnectivityController());
 
   return InkWell(
     // 버튼을 눌렀을 때
     onTap: () async{
       // 전화번호가 모두 입력되면 실행할 로직
       if (numberController.numberLen == 11){
-
-        // 네트워크가 연결 확인
-        var connectivityResult = await connectivityCheck();
-        if (connectivityResult) {
+        // 네트워크 연결 확인
+        if (connectivityController.isConnected.value) {
           // getNumberToken();                     // 해당 번호에 해당하는 토큰을 찾는 로직
           // getNumberName();                      //           ..        학생 이름을 찾는 로직
           sendAttendanceNoti();                    // 해당 토큰으로 알림을 보내는 로직
