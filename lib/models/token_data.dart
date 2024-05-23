@@ -27,15 +27,15 @@ class TokenData {
 
 // 데이터 컨트롤러
 class TokenDataController extends GetxController {
-  List<TokenData>? _tokenDataList;
+  TokenData? _tokenData;
 
-  void setTokenDataList(List<TokenData> tokenDataList) {
-    _tokenDataList = tokenDataList;
+  void setTokenData(TokenData tokenData) {
+    _tokenData = tokenData;
     update();
   }
   
-  List<TokenData>? get tokenDataList => _tokenDataList;
-  String get stuId => _tokenDataList![0].stuId;
-  String get name => _tokenDataList![0].name;
-  String get token => _tokenDataList![0].token;
+  TokenData? get tokenData => _tokenData;
+  String get stuId => _tokenData!.stuId;
+  String get name => _tokenData!.name;
+  String get token => _tokenData!.token;
 }

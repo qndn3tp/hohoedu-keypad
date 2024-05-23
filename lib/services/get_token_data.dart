@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hoho_keypad/models/token_data.dart';
 import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 import 'package:hoho_keypad/services/send_attendance_noti.dart';
+import 'package:hoho_keypad/services/send_dummy_noti.dart';
 import 'package:hoho_keypad/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
@@ -37,14 +38,15 @@ Future<void> getTokenData() async {
       final resultList = json.decode(response.body);
 
       if (resultList[0]["result"] == null) {
-        final resultList0 = resultList.cast<Map<String, dynamic>>();
-        // JSON 데이터를 TokenData 객체 리스트로 파싱
-        List<TokenData> tokenDataList = resultList0.map<TokenData>((json) => TokenData.fromJson(json)).toList();
+        TokenData tokenData = TokenData.fromJson(resultList[0]); 
         final TokenDataController tokenDataController = Get.put(TokenDataController());
-        tokenDataController.setTokenDataList(tokenDataList);
+        tokenDataController.setTokenData(tokenData);
 
         // 해당 토큰데이터로 출결 알림 전송
+        await sendDummyNoti();
+        print("더미 데이터 알림 전송");
         await sendAttendanceNoti();
+        print("실제 출석 알림 전송");
       }
       else {
         failDialog("토큰 데이터가 없습니다");
