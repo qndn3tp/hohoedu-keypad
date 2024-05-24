@@ -20,26 +20,50 @@ class KeyboardKey extends StatefulWidget {
 }
 
 class _KeyboardKeyState extends State<KeyboardKey> {
+  final functionalKey = ["한자", "숫자", Icons.backspace_rounded];    // 숫자 입력이 아닌 기능 키
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      // 키패드의 키를 눌렀을 때
-      onTap: (){
-        widget.onTap(widget.value);
-      },
-      child: AspectRatio(
-        aspectRatio: 2,         // 키패드의 가로세로 비율
-          child: Center(
-            child: widget.label is String
-              ? Text(
-                widget.label,
-                style: const TextStyle(
-                  fontSize: 20, 
-                  fontWeight: FontWeight.bold, 
-                  color: PrimaryColors.textGrey),
-              )
-              : Icon(widget.label, color: PrimaryColors.textGrey),
-          ),
+    return Container(
+      margin: const EdgeInsets.only(top: 5),
+      child: InkWell(
+        // 키패드의 키를 눌렀을 때
+        onTap: (){
+          widget.onTap(widget.value);
+        },
+        child: AspectRatio(
+          aspectRatio: 2,         // 키패드의 가로세로 비율
+            child: Container(
+              margin: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: functionalKey.contains(widget.value) ? PrimaryColors.grey1 : Colors.white,
+                border: Border.all(color: Colors.white, width: 2),
+                borderRadius: BorderRadius.circular(10), 
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0xFFECECEC), 
+                    offset: Offset(6.31, 6.31), 
+                    blurRadius: 16, 
+                  ),
+                  BoxShadow(
+                    color: Color(0xFFFFFFFF), 
+                    offset: Offset(-6.31, -6.31), 
+                    blurRadius: 16,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: widget.label is String
+                  ? Text(
+                    widget.label,
+                    style: const TextStyle(
+                      fontSize: 20, 
+                      fontWeight: FontWeight.bold, 
+                      color: PrimaryColors.textGrey),
+                  )
+                  : Icon(widget.label, color: PrimaryColors.textGrey),
+              ),
+            ),
+        ),
       ),
     );
   }

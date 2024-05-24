@@ -1,19 +1,40 @@
-import 'package:get/get.dart';  
+import 'package:get/get.dart';
+import 'package:hoho_keypad/screens/attendance/keypad.dart';  
 
 ////////////////////
 //  번호 컨트롤러  //
 ////////////////////
 
-// 번호 변수를 실시간으로 관리하기 위해 
-// setState()대신 상태관리패키지인 getx 사용.
 class NumberController extends GetxController {
+  final keyController = Get.put(KeyController());
   // 번호
   RxString number = ''.obs;
 
+  Map<String, String> hanjaToDigit = {
+    '〇': '0', '一': '1', '二': '2',
+    '三': '3', '四': '4', '五': '5',
+    '六': '6', '七': '7', '八': '8',
+    '九': '9',
+  };
+
   // 번호 입력
-  void onNumberPress(val) {               // 9자리까지만 입력, 하나씩 추가
-    if (number.value.length < 9) {
-      number.value += val;
+  void onNumberPress(val) {       
+    // 키보드 변경        
+    if (val == "숫자" || val == "한자") {     
+      keyController.changeKey();
+    } 
+    else { 
+      if (number.value.length < 9) {        // 9자리까지만 입력, 하나씩 추가
+        // 숫자 키보드
+        if (keyController.isDigit.value) {
+          number.value += val;
+        } 
+        // 한자 키보드
+        else {
+          final key = val.toString();
+          number.value += hanjaToDigit[key]!;
+        }
+      }
     }
   }
 

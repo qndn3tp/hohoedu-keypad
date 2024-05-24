@@ -6,17 +6,37 @@ import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 ///////////////
 //  키패드  //
 ///////////////
-keyboard() {
+
+class KeyController extends GetxController {
+  RxBool isDigit = true.obs;
+
+  void changeKey() {
+    isDigit.value = !isDigit.value;
+  }
+}
+
+Widget keyboard() {
   // 번호 컨트롤러
   final numberController = Get.put(NumberController());
+  final keyController = Get.put(KeyController());
   
-  // 키패드 배열
-  final keys = [
+  // 숫자 키보드
+  final digitKeys = [
     ['1', '2', '3'],
     ['4', '5', '6'],
     ['7', '8', '9'],
-    ['', '0', Icons.backspace_outlined]
+    ['한자', '0', Icons.backspace_rounded]
   ];
+
+  // 한자키보드
+  final hanjaKeys = [
+    ['一', '二', '三'],
+    ['四', '五', '六'],
+    ['七', '八', '九'],
+    ['숫자', '〇', Icons.backspace_rounded]
+  ];
+
+  final keys = keyController.isDigit.value ? digitKeys : hanjaKeys;
 
   return Column(children: keys
   .map(
@@ -28,8 +48,8 @@ keyboard() {
           child: KeyboardKey(
             label: y,
             onTap: y is String  
-              ? numberController.onNumberPress      // 번호를 입력했을 경우 로직
-              : numberController.onBackspacePress,  // 뒤로가기 아이콘을 입력했을 경우 로직
+              ? numberController.onNumberPress      // 번호 입력 로직
+              : numberController.onBackspacePress,  // 뒤로가기 아이콘 로직
             value: y,
           ),
         );
