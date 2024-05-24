@@ -53,10 +53,9 @@ class LoginScreen extends StatelessWidget {
 }
 
 InputDecoration loginBoxDecoration(text, {passwordVisibleController}) {
-
   return const InputDecoration(
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Color(0xfff7f7f7),),
+      borderSide: BorderSide(color: PrimaryColors.grey1,),
       borderRadius: BorderRadius.all(Radius.circular(20))),
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: PrimaryColors.grey2, width: 2),
@@ -67,16 +66,9 @@ InputDecoration loginBoxDecoration(text, {passwordVisibleController}) {
 
 
 Widget loginButton() {
-  // 컨트롤러
-  // final loginController = Get.put(LoginController());                    // 로그인
-
   return GestureDetector(
     onTap: () {
       FocusManager.instance.primaryFocus?.unfocus();      // 키보드 입력 해제
-      // loginService(
-      //   아이디 입력값
-      //   loginController.idController.text,
-      // );
       Get.to(
         const StudentListScreen(),
         transition: Transition.cupertino,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 PreferredSizeWidget customAppbar(title) {
   return AppBar(
-    backgroundColor: Colors.transparent, 
+    backgroundColor: Colors.white, 
     title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
     centerTitle: true,
     bottom: const PreferredSize(
