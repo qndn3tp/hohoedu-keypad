@@ -41,15 +41,15 @@ Future<void> sendAttendanceNoti() async {
       // 토큰 유효성
       if (result["invalid_tokens"] == "") {
         // 최종적으로 알림이 전송되면 출결 정보 업데이트
-        successDiaog("전송 완료");
+        successDiaog("알림을 전송했어요!");
         await updateAttendanceData();
       } else {
         failDialog("유효하지 않은 토큰");
       }
     } else {
-      failDialog("fcm 통신 실패");
+      failDialog("서버와 통신 실패했어요");
     }
   } else {
-    failDialog("전송 실패");
+    failDialog("서버 응답이 없어요");
   }
 }
