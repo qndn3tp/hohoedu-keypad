@@ -14,8 +14,7 @@ class PrimaryColors{
 }
 
 ThemeData theme = ThemeData(
-  // 배경색
-  scaffoldBackgroundColor: Colors.white,
+  fontFamily: 'NotoSansKR-Regular',
 
   inputDecorationTheme: const InputDecorationTheme(
     filled: true,
@@ -23,7 +22,6 @@ ThemeData theme = ThemeData(
   ),
 
   textTheme: const TextTheme(
-    
   ),
 
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
 import 'package:hoho_keypad/services/get_token_data.dart';
 import 'package:hoho_keypad/style.dart';
 import 'package:hoho_keypad/utils/network_check.dart';
@@ -36,7 +37,7 @@ confirmButton() {
     // 하단 확인 버튼
     child: const BottomAppBar(
       elevation: 0,
-      color: Colors.white,
+      color: PrimaryColors.grey1,
       child: ConfirmButton(),
     ),
   );
@@ -53,6 +54,7 @@ class ConfirmButton extends StatefulWidget {
 
 class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProviderStateMixin {
   final numberController = Get.put(NumberController());
+  final AttendanceButtonController attendanceButtonController = Get.put(AttendanceButtonController());
   late AnimationController _animationController;      
 
   @override
@@ -92,7 +94,9 @@ class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProvider
         scale: scale,
         child: Container(
           decoration: BoxDecoration(
-            color: PrimaryColors.indigo,
+            color: attendanceButtonController.attendanceButton.value == 1
+              ? PrimaryColors.orange 
+              : PrimaryColors.blue,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: const [
               BoxShadow(
@@ -108,8 +112,8 @@ class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProvider
               "확인", 
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20, 
-                fontWeight: FontWeight.bold),
+                fontSize: 25, 
+                fontFamily: 'BMJUA'),
             ),
           ),
         ),
