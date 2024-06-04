@@ -44,7 +44,7 @@ confirmButton() {
 }
 
 
-// 하단 확인 버튼
+// 하단 확인 버튼 디자인
 class ConfirmButton extends StatefulWidget {
   const ConfirmButton({super.key});
 

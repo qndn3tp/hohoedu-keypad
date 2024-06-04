@@ -10,23 +10,18 @@ explainText() {
   // 번호 컨트롤러
   final numberController = Get.put(NumberController());
   return Center(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Obx(() {
-          return Container(
-            child: numberController.numberLen > 0                              // 번호의 입력이 시작되고
-              ? numberController.numberLen == 9   
-                ? const SizedBox()                                             // 모두 입력한 경우
-                : const Text(                                                  // 덜 입력한 경우
-                  "9자리 모두 입력해주세요",                              
-                  style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 214, 15, 1)))   
-              : const Text(                                                    // 아무 입력이 없는 경우  
-                "번호를 입력해주세요", 
-                style: TextStyle(fontSize: 18, color: PrimaryColors.textGrey))  
-          );
-        }),
-      ],
-    ),
+    child: Obx(() {
+      return Container(
+        child: numberController.numberLen > 0                              // 번호의 입력이 시작되고
+          ? numberController.numberLen == 9   
+            ? const SizedBox()                                             // 모두 입력한 경우
+            : const Text(                                                  // 덜 입력한 경우
+              "9자리 모두 입력해주세요",                              
+              style: TextStyle(fontSize: 18, color: Color(0xffd60f01)))   
+          : const Text(                                                    // 아무 입력이 없는 경우  
+            "번호를 입력해주세요", 
+            style: TextStyle(fontSize: 18, color: PrimaryColors.textGrey))  
+      );
+    })
   );
 }

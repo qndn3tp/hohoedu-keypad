@@ -19,7 +19,7 @@ class NumberController extends GetxController {
 
   // 번호 입력
   void onNumberPress(val) {       
-    // 키보드 변경        
+    // "숫자", "한자" 키 클릭 => 키보드 변경        
     if (val == "숫자" || val == "한자") {     
       keyController.changeKey();
     } 

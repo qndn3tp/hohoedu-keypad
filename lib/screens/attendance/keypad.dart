@@ -8,7 +8,7 @@ import 'package:hoho_keypad/screens/attendance/number_controller.dart';
 ///////////////
 
 class KeyController extends GetxController {
-  RxBool isDigit = true.obs;
+  RxBool isDigit = true.obs;            // 숫자 키보드:true, 한자 키보드: false
 
   void changeKey() {
     isDigit.value = !isDigit.value;
@@ -28,7 +28,7 @@ Widget keyboard() {
     ['한자', '0', Icons.backspace_rounded]
   ];
 
-  // 한자키보드
+  // 한자 키보드
   final hanjaKeys = [
     ['一', '二', '三'],
     ['四', '五', '六'],

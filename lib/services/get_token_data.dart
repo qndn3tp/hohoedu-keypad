@@ -43,14 +43,14 @@ Future<void> getTokenData() async {
         tokenDataController.setTokenData(tokenData);
 
         // 해당 토큰데이터로 출결 알림 전송
-        await sendDummyNoti();
-        print("더미 데이터 알림 전송");
-        await sendAttendanceNoti();
-        print("실제 출석 알림 전송");
+        await sendDummyNoti();              // 더미 알림을 보내 기기를 깨운 뒤,
+        await sendAttendanceNoti();         // 실제 알림 전송
       }
       else {
-        failDialog("토큰 데이터가 없습니다");
+        failDialog("저장된 데이터가 없어요");
       }
+    } else {
+      failDialog("서버와 통신 실패했어요");
     }
   }
   // 응답을 받지 못했을 때

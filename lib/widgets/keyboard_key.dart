@@ -21,12 +21,12 @@ class KeyboardKey extends StatefulWidget {
 
 class _KeyboardKeyState extends State<KeyboardKey> {
   final functionalKey = ["한자", "숫자", Icons.backspace_rounded];    // 숫자 입력이 아닌 기능 키
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 5),
       child: InkWell(
-        // 키패드의 키를 눌렀을 때
         onTap: (){
           widget.onTap(widget.value);
         },
@@ -53,8 +53,7 @@ class _KeyboardKeyState extends State<KeyboardKey> {
               ),
               child: Center(
                 child: widget.label is String
-                  ? Text(
-                    widget.label,
+                  ? Text( widget.label,
                     style: const TextStyle(
                       fontSize: 20, 
                       fontWeight: FontWeight.bold, 

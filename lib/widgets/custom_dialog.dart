@@ -8,53 +8,38 @@ import 'package:hoho_keypad/style.dart';
 /////////////
 void customDialog(title, detail, imgPath) {
   showGeneralDialog(
-    barrierDismissible: true,
     barrierLabel: '',
-    barrierColor: Colors.black38,
+    barrierColor: Colors.black26,
     transitionDuration: const Duration(milliseconds: 200),
     pageBuilder: (ctx, anim1, anim2) => AlertDialog(
       title: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: 250,
-             height: 180,
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 20),
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(150),
-                    color: title =="전송 성공" 
-                      ? const Color.fromARGB(255, 199, 241, 192) 
-                      : const Color(0xfff0cccc),
-                    image: DecorationImage(
-                      image: AssetImage(imgPath),
-                      fit: BoxFit.contain
-                    ),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                     Text(title, style: TextStyle(
-                      color: title =="전송 성공" 
-                        ? const Color.fromARGB(255, 24, 159, 0)
-                        : const Color.fromARGB(255, 233, 47, 47),
-                      fontWeight: FontWeight.bold, fontSize: 22),),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(detail, style: const TextStyle(color: PrimaryColors.textGrey, fontSize: 17),),
-                    ),
-                  ],
-                )
-              ],
+          Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(150),
+              color: title =="전송 성공" 
+                ? const Color(0xffc7f1c0) 
+                : const Color(0xfff0cccc),
+              image: DecorationImage(
+                image: AssetImage(imgPath),
+                fit: BoxFit.contain
+              ),
             ),
-          )
-        ],
+          ),
+          Text(title, style: TextStyle(
+            color: title =="전송 성공"
+              ? const Color(0xff189f00)
+              : const Color(0xffe92f2f),
+            fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(detail, style: const TextStyle(color: PrimaryColors.textGrey, fontSize: 17),),
+          ),
+        ]
       ),
     ),
     transitionBuilder: (ctx, anim1, anim2, child) => BackdropFilter(

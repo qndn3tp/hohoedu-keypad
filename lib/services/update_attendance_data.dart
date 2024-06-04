@@ -37,19 +37,4 @@ Future<void> updateAttendanceData() async {
   ?.toLowerCase().contains('charset=utf-8') != true) {
     response.headers['content-type'] = 'application/json; charset=utf-8';
   }
-  // try {
-  //   // 응답을 성공적으로 받았을 때
-  //   if (response.statusCode == 200) {
-  //     final resultList = json.decode(response.body);
-
-  //     // 응답 데이터가 성공일 때
-  //     if (resultList[0]["result"] == null) {
-  //     } else {
-  //       // failDialog("");
-  //     }
-  //   }
-  // }
-  // // 응답을 받지 못했을 때
-  // catch (e) {
-  // }
 }
