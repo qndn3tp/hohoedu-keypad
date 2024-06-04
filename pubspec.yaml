@@ -1,5 +1,5 @@
-name: hoho_keypad
-description: "A new Flutter project."
+name: hohoedu_attendance
+description: "It is used to check the student's attendance in hoho academy"
 
 version: 1.0.0+1
 
@@ -29,15 +29,9 @@ flutter:
     - .env
 
   fonts:
-    - family: NotoSansKR-Bold
-      fonts: 
-        - asset: assets/fonts/NotoSansKR-Bold.ttf
     - family: NotoSansKR-Regular
       fonts: 
         - asset: assets/fonts/NotoSansKR-Regular.ttf
-    - family: NotoSansKR-Light
-      fonts: 
-        - asset: assets/fonts/NotoSansKR-Light.ttf
     - family: BMJUA
       fonts: 
         - asset: assets/fonts/BMJUA.ttf

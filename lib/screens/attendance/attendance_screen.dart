@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
-import 'package:hoho_keypad/style.dart';
-import 'package:hoho_keypad/widgets/confirm_button.dart';
-import 'package:hoho_keypad/screens/attendance/explain_text.dart';
-import 'package:hoho_keypad/screens/attendance/keypad.dart';
-import 'package:hoho_keypad/screens/attendance/number_text.dart';
-import 'package:hoho_keypad/widgets/custom_appbar.dart';
+import 'package:hohoedu_attendance/screens/home/attendance_button_controller.dart';
+import 'package:hohoedu_attendance/style.dart';
+import 'package:hohoedu_attendance/widgets/confirm_button.dart';
+import 'package:hohoedu_attendance/screens/attendance/explain_text.dart';
+import 'package:hohoedu_attendance/screens/attendance/keypad.dart';
+import 'package:hohoedu_attendance/screens/attendance/number_text.dart';
+import 'package:hohoedu_attendance/widgets/custom_appbar.dart';
 
 ///////////////////////
 // 홈 화면(번호 입력) //
@@ -23,11 +23,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(Get.context!).size; 
+    final screenHeight = MediaQuery.of(Get.context!).size.height; 
+
     return Scaffold(
       backgroundColor: PrimaryColors.grey1,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenSize.height * 0.07), 
+        preferredSize: Size.fromHeight(screenHeight * 0.07), 
         child: customAppbar(attendanceButtonController.getAttendanceStatus())
       ),
       body: SingleChildScrollView(
@@ -36,7 +37,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             // 텍스트
             Container(
               padding: const EdgeInsets.only(top: 50),
-              height: screenSize.height * 0.1,
+              height: screenHeight * 0.1,
               width: double.infinity,
               color: Colors.white, 
               child: explainText(),
@@ -45,7 +46,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               color: Colors.white, 
-              height: screenSize.height * 0.33,
+              height: screenHeight * 0.33,
               child: numberText()
             ),
             // 키보드 입력

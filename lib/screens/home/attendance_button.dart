@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
-import 'package:hoho_keypad/screens/attendance/attendance_screen.dart';
+import 'package:hohoedu_attendance/screens/home/attendance_button_controller.dart';
+import 'package:hohoedu_attendance/screens/attendance/attendance_screen.dart';
 
 /////////////////
 // 등/하원 버튼 //

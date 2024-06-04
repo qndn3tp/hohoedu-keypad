@@ -1,6 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/models/token_data.dart';
+import 'package:hohoedu_attendance/models/token_data.dart';
 import 'package:http/http.dart' as http;
 
 /////////////////////

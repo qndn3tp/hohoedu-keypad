@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/models/token_data.dart';
-import 'package:hoho_keypad/screens/attendance/number_controller.dart';
-import 'package:hoho_keypad/services/send_attendance_noti.dart';
-import 'package:hoho_keypad/services/send_dummy_noti.dart';
-import 'package:hoho_keypad/widgets/custom_dialog.dart';
+import 'package:hohoedu_attendance/models/token_data.dart';
+import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';
+import 'package:hohoedu_attendance/services/send_attendance_noti.dart';
+import 'package:hohoedu_attendance/services/send_dummy_noti.dart';
+import 'package:hohoedu_attendance/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
 ////////////////////////////////

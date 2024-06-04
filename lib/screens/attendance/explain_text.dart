@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/attendance/number_controller.dart';
-import 'package:hoho_keypad/style.dart';
+import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';
+import 'package:hohoedu_attendance/style.dart';
 
 ///////////////////
 //  설명 텍스트  //
@@ -9,6 +9,7 @@ import 'package:hoho_keypad/style.dart';
 explainText() {
   // 번호 컨트롤러
   final numberController = Get.put(NumberController());
+  
   return Center(
     child: Obx(() {
       return Container(

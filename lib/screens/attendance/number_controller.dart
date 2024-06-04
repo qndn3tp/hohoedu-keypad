@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/attendance/keypad.dart';  
+import 'package:hohoedu_attendance/screens/attendance/keypad.dart';  
 
 ////////////////////
 //  번호 컨트롤러  //
 ////////////////////
-
 class NumberController extends GetxController {
   final keyController = Get.put(KeyController());
   // 번호

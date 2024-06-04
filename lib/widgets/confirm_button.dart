@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/screens/home/attendance_button_controller.dart';
-import 'package:hoho_keypad/services/get_token_data.dart';
-import 'package:hoho_keypad/style.dart';
-import 'package:hoho_keypad/utils/network_check.dart';
-import 'package:hoho_keypad/widgets/custom_dialog.dart';
-import 'package:hoho_keypad/screens/attendance/number_controller.dart';
+import 'package:hohoedu_attendance/screens/home/attendance_button_controller.dart';
+import 'package:hohoedu_attendance/services/get_token_data.dart';
+import 'package:hohoedu_attendance/style.dart';
+import 'package:hohoedu_attendance/utils/network_check.dart';
+import 'package:hohoedu_attendance/widgets/custom_dialog.dart';
+import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';
 
 ////////////////
 //  확인 버튼  //

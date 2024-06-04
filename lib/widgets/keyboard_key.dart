@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hoho_keypad/style.dart';
+import 'package:hohoedu_attendance/style.dart';
 
 ////////////////
 //  키패드 키  //

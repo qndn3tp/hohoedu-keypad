@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hoho_keypad/screens/home/home.dart';
-import 'package:hoho_keypad/style.dart';
+import 'package:hohoedu_attendance/screens/home/home.dart';
 
 void main() async{
   // 앱의 바인딩 초기화(flutter engine과의 상호작용을 위한 준비)
@@ -17,9 +16,8 @@ void main() async{
   ]);
 
   runApp(
-    GetMaterialApp(
-      theme: theme,
-      home: const MyApp()
+    const GetMaterialApp(
+      home: MyApp()
     )
   );
 }

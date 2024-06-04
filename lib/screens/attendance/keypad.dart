@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hoho_keypad/widgets/keyboard_key.dart';
-import 'package:hoho_keypad/screens/attendance/number_controller.dart';  
+import 'package:hohoedu_attendance/widgets/keyboard_key.dart';
+import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';  
 
 ///////////////
 //  키패드  //
 ///////////////
-
 class KeyController extends GetxController {
   RxBool isDigit = true.obs;            // 숫자 키보드:true, 한자 키보드: false
 
-  void changeKey() {
+  void changeKey() {                    // 키보드 전환
     isDigit.value = !isDigit.value;
   }
 }
