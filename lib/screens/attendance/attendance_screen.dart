@@ -26,13 +26,16 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     final screenSize = MediaQuery.of(Get.context!).size; 
     return Scaffold(
       backgroundColor: PrimaryColors.grey1,
-      appBar: customAppbar(attendanceButtonController.getAttendanceStatus()),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenSize.height * 0.07), 
+        child: customAppbar(attendanceButtonController.getAttendanceStatus())
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             // 텍스트
             Container(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 50),
               height: screenSize.height * 0.1,
               width: double.infinity,
               color: Colors.white, 
@@ -41,8 +44,8 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             // 번호
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              color: Colors.white,
-              height: screenSize.height * 0.3,
+              color: Colors.white, 
+              height: screenSize.height * 0.33,
               child: numberText()
             ),
             // 키보드 입력

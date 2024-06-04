@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="hoho_keypad"
+        android:label="호호서당 출석"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
