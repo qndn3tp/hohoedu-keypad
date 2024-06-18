@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hohoedu_attendance/screens/home/home.dart';
+import 'package:hohoedu_attendance/screens/home/home_screen.dart';
 
 void main() async{
   // 앱의 바인딩 초기화(flutter engine과의 상호작용을 위한 준비)

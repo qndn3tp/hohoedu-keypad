@@ -4,22 +4,22 @@ import 'package:hohoedu_attendance/style.dart';
 ////////////////
 //  키패드 키  //
 ////////////////
-class KeyboardKey extends StatefulWidget {
+class KeypadKey extends StatefulWidget {
   final dynamic label;
   final dynamic value;
   final ValueSetter<dynamic> onTap;
 
-  const KeyboardKey({super.key, 
+  const KeypadKey({super.key, 
     required this.label,
     required this.onTap,
     required this.value,
   });
 
   @override
-  State<KeyboardKey> createState() => _KeyboardKeyState();
+  State<KeypadKey> createState() => _KeypadKeyState();
 }
 
-class _KeyboardKeyState extends State<KeyboardKey> {
+class _KeypadKeyState extends State<KeypadKey> {
   final functionalKey = ["한자", "숫자", Icons.backspace_rounded];    // 숫자 입력이 아닌 기능 키
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hohoedu_attendance/widgets/keyboard_key.dart';
+import 'package:hohoedu_attendance/widgets/keypad_key.dart';
 import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';  
 
 ///////////////
@@ -44,7 +44,7 @@ Widget keyboard() {
       children: x.map((y) {   
         // y: 각 행에 해당하는 원소(키패드의 키)  
         return Expanded(
-          child: KeyboardKey(
+          child: KeypadKey(
             label: y,
             onTap: y is String  
               ? numberController.onNumberPress      // 번호 입력 로직
