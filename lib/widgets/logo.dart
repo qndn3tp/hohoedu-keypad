@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 logoImage() {
   final screenHeight = MediaQuery.of(Get.context!).size.height;   
   return Container(
-    margin: EdgeInsets.only(top: screenHeight * 0.1),
-    height: screenHeight * 0.15,
+    margin: EdgeInsets.only(top: screenHeight * 0.05),
+    height: screenHeight * 0.2,
     child: Image.asset('assets/images/logo.png'),
   );
 }

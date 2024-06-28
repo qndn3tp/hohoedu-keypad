@@ -23,12 +23,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(Get.context!).size.height; 
+    final screenHeight = MediaQuery.of(Get.context!).size.height - 200; 
 
     return Scaffold(
       backgroundColor: PrimaryColors.grey1,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenHeight * 0.07), 
+        preferredSize: const Size.fromHeight(80), 
         child: customAppbar(attendanceButtonController.getAttendanceStatus())
       ),
       body: SingleChildScrollView(
@@ -37,16 +37,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             // 텍스트
             Container(
               padding: const EdgeInsets.only(top: 50),
-              height: screenHeight * 0.1,
-              width: double.infinity,
               color: Colors.white, 
               child: explainText(),
             ),
             // 번호
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              color: Colors.white, 
-              height: screenHeight * 0.33,
+              color: Colors.white,
+              height: screenHeight * 0.45,
               child: numberText()
             ),
             // 키보드 입력

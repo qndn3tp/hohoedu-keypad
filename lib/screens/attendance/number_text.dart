@@ -9,7 +9,7 @@ import 'package:hohoedu_attendance/style.dart';
 ////////////////
 Widget numberText() { 
   final numberController = Get.put(NumberController());
-  const numberStyle = TextStyle(fontSize: 40,  color: PrimaryColors.textGrey, fontFamily: 'BMJUA');
+  const numberStyle = TextStyle(fontSize: 90,  color: PrimaryColors.textGrey, fontFamily: 'BMJUA');
   
   return Obx(() {
     final number = numberController.number.value;

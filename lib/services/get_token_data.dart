@@ -3,8 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:hohoedu_attendance/models/token_data.dart';
 import 'package:hohoedu_attendance/screens/attendance/number_controller.dart';
-import 'package:hohoedu_attendance/services/send_attendance_noti.dart';
-import 'package:hohoedu_attendance/services/send_dummy_noti.dart';
+import 'package:hohoedu_attendance/services/update_attendance_data.dart';
 import 'package:hohoedu_attendance/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
@@ -42,9 +41,8 @@ Future<void> getTokenData() async {
         final TokenDataController tokenDataController = Get.put(TokenDataController());
         tokenDataController.setTokenData(tokenData);
 
-        // 해당 토큰데이터로 출결 알림 전송
-        await sendDummyNoti();              // 더미 알림을 보내 기기를 깨운 뒤,
-        await sendAttendanceNoti();         // 실제 알림 전송
+        // 출결 정보 확인
+        await updateAttendanceData();
       }
       else {
         failDialog("저장된 데이터가 없어요");

@@ -25,6 +25,7 @@ class _KeypadKeyState extends State<KeypadKey> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 110,
       margin: const EdgeInsets.only(top: 5),
       child: InkWell(
         onTap: (){
@@ -55,7 +56,7 @@ class _KeypadKeyState extends State<KeypadKey> {
                 child: widget.label is String
                   ? Text( widget.label,
                     style: const TextStyle(
-                      fontSize: 20, 
+                      fontSize: 40, 
                       fontWeight: FontWeight.bold, 
                       color: PrimaryColors.textGrey),
                   )

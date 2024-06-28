@@ -35,10 +35,12 @@ confirmButton() {
       }
     },
     // 하단 확인 버튼
-    child: const BottomAppBar(
-      elevation: 0,
+    child: Container(
+      margin: const EdgeInsets.all(15),
+      height: 100,
+      width: double.infinity,
       color: PrimaryColors.grey1,
-      child: ConfirmButton(),
+      child: const ConfirmButton(),
     ),
   );
 }
@@ -112,7 +114,7 @@ class _ConfirmButtonState extends State<ConfirmButton> with SingleTickerProvider
               "확인", 
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 25, 
+                fontSize: 50, 
                 fontFamily: 'BMJUA'),
             ),
           ),

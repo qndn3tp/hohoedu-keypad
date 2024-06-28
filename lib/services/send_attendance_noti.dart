@@ -3,7 +3,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:hohoedu_attendance/models/token_data.dart';
 import 'package:hohoedu_attendance/screens/home/attendance_button_controller.dart';
-import 'package:hohoedu_attendance/services/update_attendance_data.dart';
 import 'package:hohoedu_attendance/widgets/custom_dialog.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,9 +39,6 @@ Future<void> sendAttendanceNoti() async {
     if (result["status"] == "success") {
       // 토큰 유효성 검사
       if (result["invalid_tokens"] == "") {
-        // 최종적으로 알림이 전송되면 출결 정보 업데이트
-        successDiaog("알림을 전송했어요!");
-        await updateAttendanceData();
       } else {
         failDialog("유효하지 않은 토큰이에요");
       }

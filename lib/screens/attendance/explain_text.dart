@@ -15,13 +15,13 @@ explainText() {
       return Container(
         child: numberController.numberLen > 0                              // 번호의 입력이 시작되고
           ? numberController.numberLen == 9   
-            ? const SizedBox()                                             // 모두 입력한 경우
+            ? const Text("", style: TextStyle(fontSize: 33, fontFamily: 'BMJUA'),)  // 모두 입력한 경우
             : const Text(                                                  // 덜 입력한 경우
               "9자리 모두 입력해주세요",                              
-              style: TextStyle(fontSize: 18, color: Color(0xffd60f01)))   
+              style: TextStyle(fontSize: 33, color: Color(0xffd60f01), fontFamily: 'BMJUA'))   
           : const Text(                                                    // 아무 입력이 없는 경우  
             "번호를 입력해주세요", 
-            style: TextStyle(fontSize: 18, color: PrimaryColors.textGrey))  
+            style: TextStyle(fontSize: 33, color: PrimaryColors.textGrey, fontFamily: 'BMJUA'))  
       );
     })
   );

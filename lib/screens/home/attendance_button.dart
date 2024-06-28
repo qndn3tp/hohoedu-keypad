@@ -41,7 +41,7 @@ Widget attendanceButton(title) {
           child: Center(
              child: Text(
               title, 
-              style: const TextStyle(color: Colors.white, fontSize: 45, fontFamily: 'BMJUA'),),
+              style: const TextStyle(color: Colors.white, fontSize: 90, fontFamily: 'BMJUA'),),
           ),
         ),
       )
